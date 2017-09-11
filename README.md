@@ -58,7 +58,7 @@ SSHClient.close();
 // TODO: SSH Client using private & public key
 SSHClient.setup("root","192.168.1.1",22);
 SSHClient.usePrivateKey(true);
-SSHClient.setPassword("your_private_key_string","your_public_key_string","your_passphrase");
+SSHClient.setIdentity("your_private_key_string","your_public_key_string","your_passphrase");
 SSHClient.connect();
 SSHClient.execute("uname -a").then(
   (result)=>{
