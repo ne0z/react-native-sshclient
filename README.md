@@ -26,7 +26,7 @@
       compile project(':react-native-react-native-sshclient')
   	```
 
-## Usage
+## Usage : Using Password
 ```javascript
 import SSHClient from 'react-native-react-native-sshclient';
 
@@ -52,7 +52,9 @@ SSHClient.execute("ls").then(
   }
 );
 SSHClient.close();
-
+```
+## Usage : Using Public & Private key
+```javascript
 // TODO: SSH Client using private & public key
 SSHClient.setup("root","192.168.1.1",22);
 SSHClient.usePrivateKey(true);
