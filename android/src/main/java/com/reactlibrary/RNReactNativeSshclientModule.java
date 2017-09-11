@@ -97,21 +97,21 @@ public class RNReactNativeSshclientModule extends ReactContextBaseJavaModule {
       JSch jsch = new JSch();
       public void run() {
         try {
-          if (!RNSSHClientModule.this.mode){
-            session = jsch.getSession(RNSSHClientModule.this.username,RNSSHClientModule.this.ip_address, RNSSHClientModule.this.port);
-            session.setPassword(RNSSHClientModule.this.password);
+          if (!RNReactNativeSshclientModule.this.mode){
+            session = jsch.getSession(RNReactNativeSshclientModule.this.username,RNReactNativeSshclientModule.this.ip_address, RNReactNativeSshclientModule.this.port);
+            session.setPassword(RNReactNativeSshclientModule.this.password);
             Properties prop = new Properties();
             prop.put("StrictHostKeyChecking", "no");
             session.setConfig(prop);
           }else{
-            jsch.addIdentity("my key",RNSSHClientModule.this.private_key.getBytes(),RNSSHClientModule.this.public_key.getBytes(), RNSSHClientModule.this.passphrase.getBytes());
-            session = jsch.getSession(RNSSHClientModule.this.username,RNSSHClientModule.this.ip_address, RNSSHClientModule.this.port);
+            jsch.addIdentity("my key",RNReactNativeSshclientModule.this.private_key.getBytes(),RNReactNativeSshclientModule.this.public_key.getBytes(), RNReactNativeSshclientModule.this.passphrase.getBytes());
+            session = jsch.getSession(RNReactNativeSshclientModule.this.username,RNReactNativeSshclientModule.this.ip_address, RNReactNativeSshclientModule.this.port);
             Properties prop = new Properties();
             prop.put("StrictHostKeyChecking", "no");
             session.setConfig(prop);
           }
           session.connect();
-          RNSSHClientModule.this.setSession(session);
+          RNReactNativeSshclientModule.this.setSession(session);
           promise.resolve(true);
         }catch(Exception e){
           promise.reject("ERROR", e.getMessage());
@@ -125,7 +125,7 @@ public class RNReactNativeSshclientModule extends ReactContextBaseJavaModule {
     new Thread(new Runnable() {
       public void run() {
         try {
-          ChannelExec channelExec = (ChannelExec) RNSSHClientModule.this.session.openChannel("exec");
+          ChannelExec channelExec = (ChannelExec) RNReactNativeSshclientModule.this.session.openChannel("exec");
           InputStream in = channelExec.getInputStream();
           channelExec.setCommand(command);
           channelExec.connect();
