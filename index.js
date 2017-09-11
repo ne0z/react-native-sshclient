@@ -1,6 +1,6 @@
 
 import { NativeModules } from 'react-native';
 
-const { RNReactNativeSshclient } = NativeModules;
+const { SSHClient } = NativeModules;
 
 export default RNReactNativeSshclient;
