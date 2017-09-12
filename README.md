@@ -1,13 +1,13 @@
 
-# react-native-react-native-sshclient
+# react-native-sshclient
 
 ## Getting started
 
-`$ npm install react-native-react-native-sshclient --save`
+`$ npm install react-native-sshclient --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-react-native-sshclient`
+`$ react-native link react-native-sshclient`
 
 ### Manual installation
 
@@ -18,17 +18,17 @@
   - Add `new RNReactNativeSshclientPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
-  	include ':react-native-react-native-sshclient'
-  	project(':react-native-react-native-sshclient').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-react-native-sshclient/android')
+  	include ':react-native-sshclient'
+  	project(':react-native-sshclient').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-sshclient/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-react-native-sshclient')
+      compile project(':react-native-sshclient')
   	```
 
 ## Usage : Using Password
 ```javascript
-import SSHClient from 'react-native-react-native-sshclient';
+import SSHClient from 'react-native-sshclient';
 
 // TODO: SSH Client using password
 SSHClient.setup("root","192.168.1.1",22);
